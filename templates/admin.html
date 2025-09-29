@@ -10,9 +10,9 @@
             <div class="card-body">
                 <h5>{{ r.name }}</h5>
                 <p>{{ r.party }}</p>
-                <h3>{{ r.vote_count }} votes</h3>
+                <h3>{{ r.votes }} votes</h3>
                 <div class="progress">
-                    <div class="progress-bar" style="width: {{ (r.vote_count / total_votes * 100) if total_votes > 0 else 0 }}%"></div>
+                   <div class="progress-bar" style="width: {{ (r.votes / total_votes * 100) if total_votes > 0 else 0 }}%"></div>
                 </div>
             </div>
         </div>
