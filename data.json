@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "scrypt:32768:8:1$i47cX99ISXQjlIu2$281853ca0e3f1ab68bbed43c16a8e9953297f7abea3c21bbaeac952856957616e2e50915cc140acda3c80b9d10125c6c4f08dcee11b3daefd49dcd2f6458503d",
+      "role": "admin",
+      "has_voted": false
+    }
+  ],
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "party": "Party A",
+      "votes": 0
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "party": "Party B",
+      "votes": 0
+    }
+  ]
+}

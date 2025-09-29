@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h2>Voting Results</h2>
+<p>Total Votes: <strong>{{ total_votes }}</strong></p>
+<div class="row">
+    {% for r in results %}
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5>{{ r.name }}</h5>
+                <p>{{ r.party }}</p>
+                <h3>{{ r.vote_count }} votes</h3>
+                <div class="progress">
+                    <div class="progress-bar" style="width: {{ (r.vote_count / total_votes * 100) if total_votes > 0 else 0 }}%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
