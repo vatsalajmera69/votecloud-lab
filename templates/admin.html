@@ -1,22 +1,52 @@
 {% extends "base.html" %}
 {% block title %}Admin Dashboard{% endblock %}
+
 {% block content %}
-<h2>Voting Results</h2>
-<p>Total Votes: <strong>{{ total_votes }}</strong></p>
-<div class="row">
-    {% for r in results %}
-    <div class="col-md-4 mb-3">
-        <div class="card">
-            <div class="card-body">
-                <h5>{{ r.name }}</h5>
-                <p>{{ r.party }}</p>
-                <h3>{{ r.votes }} votes</h3>
-                <div class="progress">
-                   <div class="progress-bar" style="width: {{ (r.votes / total_votes * 100) if total_votes > 0 else 0 }}%"></div>
-                </div>
-            </div>
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card bg-primary text-white text-center shadow-sm p-4">
+            <h2>Admin Dashboard</h2>
+            <p class="lead">Total Votes: <strong>{{ total_votes }}</strong></p>
         </div>
     </div>
-    {% endfor %}
+</div>
+
+<div class="card shadow-sm p-4">
+    <h4 class="mb-3">Voting Results</h4>
+    <div class="table-responsive">
+        <table class="table align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Candidate</th>
+                    <th scope="col">Party</th>
+                    <th scope="col">Votes</th>
+                    <th scope="col">Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in results %}
+                <tr>
+                    <td>
+                        <i class="bi bi-person-circle me-2"></i>
+                        {{ r.name }}
+                    </td>
+                    <td>
+                        <span class="badge bg-info text-dark">{{ r.party }}</span>
+                    </td>
+                    <td><strong>{{ r.votes }}</strong></td>
+                    <td style="width: 40%;">
+                        <div class="progress" style="height: 20px;">
+                            <div class="progress-bar bg-{{ loop.cycle('primary','success','warning','danger','info') }}"
+                                role="progressbar"
+                                style="width: {{ (r.votes / total_votes * 100) if total_votes > 0 else 0 }}%">
+                                {{ (r.votes / total_votes * 100)|round(1) }}%
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}
