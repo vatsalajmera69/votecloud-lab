@@ -92,7 +92,7 @@ body {
 }
 
 .homepage-bg {
-    background-image: url("../static/SHS-Blog-Cover-Image.png"); /* replace bg.jpg with your image */
+    background-image: url("../static/bgimage.jpg"); /* replace bg.jpg with your image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
