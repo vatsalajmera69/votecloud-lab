@@ -13,6 +13,10 @@
 
 <div class="card shadow-sm p-4">
     <h4 class="mb-3">Voting Results</h4>
+
+    {% if total_votes == 0 %}
+        <p class="text-muted">No votes have been cast yet.</p>
+    {% else %}
     <div class="table-responsive">
         <table class="table align-middle">
             <thead class="table-light">
@@ -39,7 +43,7 @@
                             <div class="progress-bar bg-{{ loop.cycle('primary','success','warning','danger','info') }}"
                                 role="progressbar"
                                 style="width: {{ (r.votes / total_votes * 100) if total_votes > 0 else 0 }}%">
-                                {{ (r.votes / total_votes * 100)|round(1) }}%
+                                {{ ((r.votes / total_votes * 100)|round(1)) if total_votes > 0 else 0 }}%
                             </div>
                         </div>
                     </td>
@@ -48,5 +52,6 @@
             </tbody>
         </table>
     </div>
+    {% endif %}
 </div>
 {% endblock %}
