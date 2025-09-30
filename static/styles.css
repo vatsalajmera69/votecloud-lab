@@ -90,3 +90,10 @@ body {
 .btn-primary:hover {
     background: linear-gradient(90deg, #005de8, #00aaff);
 }
+
+.homepage-bg {
+    background-image: url("../static/SHS-Blog-Cover-Image.png"); /* replace bg.jpg with your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
