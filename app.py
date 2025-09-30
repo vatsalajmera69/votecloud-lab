@@ -10,7 +10,7 @@ from botocore.exceptions import ClientError
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "dev-secret-for-lab")  # set a strong one in prod
 
-S3_BUCKET = os.getenv("S3_BUCKET", "votecloud-data")
+S3_BUCKET = os.getenv("S3_BUCKET", "votecloud-bucket")
 S3_KEY = os.getenv("S3_KEY", "data.json")
 AWS_REGION = os.getenv("AWS_REGION", None)  # optional
 
